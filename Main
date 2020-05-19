@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+class Node{
+public:
+	Node* link;
+	int data;
+};
+Node* CreateNode(int value) {
+	Node* BranchT = new Node();
+	BranchT->data = value;
+	return BranchT;
+}
+void AddNode(int Val, Node* currentNode, Node* Linker) {
+	Node* Temp = CreateNode(Val);
+	currentNode->data = Temp->data;
+	currentNode->link = Linker;
+}
+int main()
+{
+	Node* branchOne = new Node();
+	Node* branchTwo = new Node();
+	Node* branchThree = new Node();
+	AddNode(10, branchOne, branchTwo);
+	AddNode(20, branchTwo, branchThree);
+	AddNode(40, branchThree, NULL);
+	cout << branchOne->data << endl;
+	cout << branchTwo->data << endl;
+	cout << branchThree->data << endl;
+	return 0;
+}
